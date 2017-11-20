@@ -1,0 +1,57 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<title>Авторизация</title>
+		<meta charset="utf-8">
+		<link type="text/css" rel="stylesheet" href="styles/style.css">
+		<script type="text/javascript">
+			
+			function validateEmptyField(inputField)
+			{
+				if(inputField.value.length == 0)
+				{
+					inputField.style.borderColor="red";
+					inputField.style.borderWidth="3px"
+					inputField.style.backgroundColor="#e89292";
+					return false;
+				}
+				else
+				{
+					inputField.style.borderColor="white";
+					inputField.style.borderWidth="1px";
+					inputField.style.backgroundColor="white";
+					return true;
+				}
+			}
+			
+			function validateBtn()
+			{
+				var form1 = validateEmptyField(document.getElementById("email"));
+				var form2 = validateEmptyField(document.getElementById("password"));
+				
+				if(form1 && form2)
+				{
+					form.submit;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="out">
+			<div id="container">
+				<form class="form" method="POST" action="" name="authorization">
+					<p class="field">
+						<input class="inpt" type="text" name="email" placeholder="Email" id="email" onchange="validateEmptyField(this)">
+					</p>
+					<p class="field">
+						<input class="inpt" type="password" name="password" placeholder="Пароль" id="password" onchange="validateEmptyField(this)">
+					</p>
+					<p class="field">	
+						<input id="btn" type="button" value="Войти" onclick="validateBtn()">
+					</p>	
+				</form>	
+			</div>
+			<a href="registration.html">Регистрация</a>
+		</div>
+	</body>
+</html>

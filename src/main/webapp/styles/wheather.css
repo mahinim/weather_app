@@ -1,0 +1,23 @@
+#container
+{
+	border-radius:5px;
+	background-color:white;
+	width:70%;
+	margin-top:50px;
+	margin-left:auto;
+	margin-right:auto;
+}
+#container h1
+{
+	text-align:center;
+	padding-top: 10px;
+}
+.cell
+{
+	width:14%;
+	text-align:center;
+	border:solid 1px black;
+	border-radius: 5px 5px 0px 0px;
+	padding:5px;
+}
+	

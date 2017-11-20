@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Оставить отзыв</title>
+		<link type="text/css" rel="stylesheet" href="styles/feedback.css"/>
+		<meta charset="utf-8">
+		<script type="text/javascript">
+			function validateEmptyField(inputField)
+			{
+				if(inputField.value.length == 0)
+				{
+					inputField.style.borderColor="red";
+					inputField.style.borderWidth="3px"
+					inputField.style.backgroundColor="#e89292";
+					document.getElementById(inputField.id+"_help").innerHTML="*";	
+					return false;
+				}
+				else
+				{
+					inputField.style.borderColor="white";
+					inputField.style.borderWidth="1px";
+					inputField.style.backgroundColor="white";
+					document.getElementById(inputField.id+"_help").innerHTML="";
+					return true;
+				}
+			}	
+			
+			function validateEmail(inputField)
+			{
+				var regexp = /@\w/;
+				
+				if( regexp.test(inputField.value))
+				{
+					inputField.style.borderColor="white";
+					inputField.style.borderWidth="1px";
+					inputField.style.backgroundColor="white";
+					document.getElementById(inputField.id+"_help").innerHTML="";
+					return true;
+				}
+				else
+				{
+					inputField.style.borderColor="red";
+					inputField.style.borderWidth="3px"
+					inputField.style.backgroundColor="#e89292";
+					document.getElementById(inputField.id+"_help").innerHTML="*";	
+					return false;
+				}
+			}
+				
+			function validateBtn(form)
+			{
+				var flag = false;
+				
+				for(var i =0; i<form.length; i++)
+				{
+					if(i!= 3)
+					{
+						if(validateEmptyField(form[i]))
+						{
+							flag = true;
+						}
+						else
+						{
+							flag = false;
+						}
+					}
+				}
+				if(flag)
+				{
+					if(validateEmail(form[1]))
+					{
+						document.getElementById("help_form").innerHTML="";
+						form.submit;
+					}
+					else
+					{
+						document.getElementById("help_form").innerHTML="Введите коректный email";
+					}
+				}
+				else
+				{
+					document.getElementById("help_form").innerHTML="Заполние все поля поля";
+				}
+			}
+			
+			function
+		</script>
+	</head>
+	<body>
+		<div id="container">
+			<h1>Оставить отзыв</h1>
+			<div class="help" id="help_form"></div>
+			<form method="POST" action="" name="feedbacks">
+				<id class="tableRow">
+					<p class="cell">
+						Имя:
+					</p>
+					<p class="cell">
+						<input id="name" type="text" name="name" onchange="validateEmptyField(this);">
+						<span class="help" id="name_help"></span>
+					</p>
+				</id>
+				<id class="tableRow">
+					<p class="cell">
+						E-mail:
+					</p>
+					<p class="cell">
+						<input id="email" type="text" name="email" onchange="validateEmail(this);">
+						<span class="help" id="email_help"></span>
+					</p>
+				</id>
+				<id class="tableRow">
+					<p class="cell">
+						Отзыв:
+					</p>
+					<p class="cell">
+						<textarea name="feedback" id="feedback" rows="10" cols="40" onchange="validateEmptyField(this);"></textarea>
+						<span class="help" id="feedback_help"></span>
+					</p>
+				</id>
+				</id class="tableRow">
+					<p class="cell">
+						
+					</p>
+					<p class="cell">
+						<input id="btn" type="button" value="отправить" onclick="validateBtn(this.form);">
+					</p>
+				</id>
+			</form>
+		</div>
+	</body>
+</html>
