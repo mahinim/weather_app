@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import utils.AuthHelper;
 import model.User;
@@ -17,12 +18,13 @@ public class FrontControllerServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private Dispatcher dispatcher;
+	//private Dispatcher dispatcher;
 	 
 	public FrontControllerServlet() {
 		super();
 	}
  
+	/*
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
  
@@ -36,13 +38,15 @@ public class FrontControllerServlet extends HttpServlet {
 			rd = request.getRequestDispatcher("/weather.html");
 			User user = new User(username, password);
 			request.setAttribute("user", user);
+			HttpSession session=request.getSession();  
+		    session.setAttribute("username", username);  
 		} else {
 			rd = request.getRequestDispatcher("/registration.html");
 		}
 		rd.forward(request, response);
 	}
-	
-    /*
+	*/
+    
 	@Override
     protected void doGet(HttpServletRequest request, 
       HttpServletResponse response) {
@@ -75,7 +79,7 @@ public class FrontControllerServlet extends HttpServlet {
 		}
     }
     
- 
+    
     private FrontCommand getCommand(HttpServletRequest request) {
         try {
             Class type = Class.forName(String.format("controller.commands.%sCommand", request.getParameter("command")));
@@ -84,5 +88,5 @@ public class FrontControllerServlet extends HttpServlet {
             return new UnknownCommand();
         }
     }
-    */
+    
 }

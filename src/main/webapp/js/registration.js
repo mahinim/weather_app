@@ -68,10 +68,8 @@ function validateBtn(form)
 	{
 		if(i!= 3 && i!=4 && i!= 6)
 		{
-			if(validateEmptyField(form[i]))
-			{
-				flag = true;
-			}
+			if(validateEmptyField(form[i])) flag = true;
+			
 			else
 			{
 				flag = false;
