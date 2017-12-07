@@ -7,7 +7,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpSession;
 
-import model.User;
+import model.WeatherUser;
 import utils.AuthHelper;
 
 public class LoginCommand extends FrontCommand {
@@ -19,8 +19,10 @@ public class LoginCommand extends FrontCommand {
 		String password = request.getParameter("password");
 		RequestDispatcher rd = null;
 		
+		/*
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
+		*/
  
 		if (AuthHelper.isAllowed(username, password)) {
 			/*

@@ -10,7 +10,7 @@
 		<div id="form_container">
 			<h1>Регистрация</h1>
 			<div id="help_form" class="help">Обязательные поля для ввода *</div>  
-			<form id="table" action="" method="POST">
+			<form id="table" action="FrontControllerServlet" method="POST" >
 				<div class="tableRow">
 					<p class="cell">Email:</p>
 					<p class="cell">
@@ -57,9 +57,10 @@
 				</div>
 				<div class="tableRow">
 					<p class="cell"> </p>
-					<p class="cell"><input disabled class="btn_disabled" type="button" name="btn" id="button" 
+					<p class="cell"><input disabled class="btn_disabled" type="submit" name="btn" id="button" 
 										value="Отправить"></p>
 				</div>
+				<input id="btn" type="hidden" value="Register" name="command"/> 
 			</form>	
 		</div>
 		<div style="text-align:center">

@@ -5,7 +5,6 @@
 <web-app>
   	<display-name>Weather Web Application</display-name>
   	<servlet>
-  		<display-name>front</display-name>
     	<servlet-name>FrontControllerServlet</servlet-name>
     	<servlet-class>controller.FrontControllerServlet</servlet-class>
   	</servlet>

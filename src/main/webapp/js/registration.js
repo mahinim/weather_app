@@ -94,6 +94,7 @@ function validateBtn(form)
 		document.getElementById("help_form").innerHTML="Заполните обязательные поля";
 	}
 	*/
+	
 }
 
 function onfousEmail()
